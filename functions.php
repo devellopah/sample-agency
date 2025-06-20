@@ -119,7 +119,9 @@ function sample_agency_scripts()
 	// Google Fonts with preconnect
 	echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
 	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
-	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;100;300;700&display=swap');
+	wp_enqueue_style('google-font-montserrat', 'https://fonts.googleapis.com/css?family=Montserrat:400,700');
+	wp_enqueue_style('google-font-roboto-slab', 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700');
+
 	wp_enqueue_style('sample-agency-style', get_stylesheet_uri(), [], _S_VERSION);
 	wp_style_add_data('sample-agency-style', 'rtl', 'replace');
 
