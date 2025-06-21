@@ -2,143 +2,36 @@
 <section class="page-section bg-light" id="portfolio">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">Portfolio</h2>
-      <h3 class="section-subheading text-muted">Lorem ipsum dolor
-        sit amet consectetur.</h3>
+      <h2 class="section-heading text-uppercase"><?php the_field('portfolio_heading') ?></h2>
+      <h3 class="section-subheading text-muted"><?php the_field('portfolio_subheading') ?></h3>
     </div>
-    <div class="row">
-      <div class="col-lg-4 col-sm-6 mb-4">
-        <!-- Portfolio item 1-->
-        <div class="portfolio-item">
-          <a class="portfolio-link" data-bs-toggle="modal"
-            href="#portfolioModal1">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content"><i
-                  class="fas fa-plus fa-3x"></i></div>
+    <?php if (get_field('portfolio_projects')) :
+      $count = count(get_field('portfolio_projects'));
+    ?>
+      <div class="row">
+        <?php foreach (get_field('portfolio_projects') as $i => $item) :
+          $iteration = $i + 1;
+        ?>
+          <div class="col-lg-4 col-sm-6 <?php echo $count < $iteration ? ' mb-4 ' : '' ?> <?php echo ($count - 1) === $iteration ? ' mb-sm-0 ' : '' ?> <?php echo ($count - 2) === $iteration ? ' mb-lg-0 ' : '' ?>">
+            <div class="portfolio-item">
+              <a class="portfolio-link" data-bs-toggle="modal"
+                href="#portfolioModal<?php echo $iteration ?>">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content"><i
+                      class="fas fa-plus fa-3x"></i></div>
+                </div>
+                <img src="<?php echo esc_url($item['image']['url']) ?>" alt="<?php echo esc_attr($item['image']['alt']) ?>" class="img-fluid">
+              </a>
+              <div class="portfolio-caption">
+                <div class="portfolio-caption-heading"><?php echo esc_html($item['client']) ?></div>
+                <div
+                  class="portfolio-caption-subheading text-muted"><?php echo esc_html($item['category']) ?></div>
+              </div>
             </div>
-            <img class="img-fluid"
-              src="assets/img/portfolio/1.jpg"
-              alt="..." />
-          </a>
-          <div class="portfolio-caption">
-            <div class="portfolio-caption-heading">Threads
-            </div>
-            <div
-              class="portfolio-caption-subheading text-muted">
-              Illustration</div>
           </div>
-        </div>
+        <?php endforeach ?>
       </div>
-      <div class="col-lg-4 col-sm-6 mb-4">
-        <!-- Portfolio item 2-->
-        <div class="portfolio-item">
-          <a class="portfolio-link" data-bs-toggle="modal"
-            href="#portfolioModal2">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content"><i
-                  class="fas fa-plus fa-3x"></i></div>
-            </div>
-            <img class="img-fluid"
-              src="assets/img/portfolio/2.jpg"
-              alt="..." />
-          </a>
-          <div class="portfolio-caption">
-            <div class="portfolio-caption-heading">Explore
-            </div>
-            <div
-              class="portfolio-caption-subheading text-muted">
-              Graphic Design</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 mb-4">
-        <!-- Portfolio item 3-->
-        <div class="portfolio-item">
-          <a class="portfolio-link" data-bs-toggle="modal"
-            href="#portfolioModal3">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content"><i
-                  class="fas fa-plus fa-3x"></i></div>
-            </div>
-            <img class="img-fluid"
-              src="assets/img/portfolio/3.jpg"
-              alt="..." />
-          </a>
-          <div class="portfolio-caption">
-            <div class="portfolio-caption-heading">Finish
-            </div>
-            <div
-              class="portfolio-caption-subheading text-muted">
-              Identity</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-        <!-- Portfolio item 4-->
-        <div class="portfolio-item">
-          <a class="portfolio-link" data-bs-toggle="modal"
-            href="#portfolioModal4">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content"><i
-                  class="fas fa-plus fa-3x"></i></div>
-            </div>
-            <img class="img-fluid"
-              src="assets/img/portfolio/4.jpg"
-              alt="..." />
-          </a>
-          <div class="portfolio-caption">
-            <div class="portfolio-caption-heading">Lines
-            </div>
-            <div
-              class="portfolio-caption-subheading text-muted">
-              Branding</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-        <!-- Portfolio item 5-->
-        <div class="portfolio-item">
-          <a class="portfolio-link" data-bs-toggle="modal"
-            href="#portfolioModal5">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content"><i
-                  class="fas fa-plus fa-3x"></i></div>
-            </div>
-            <img class="img-fluid"
-              src="assets/img/portfolio/5.jpg"
-              alt="..." />
-          </a>
-          <div class="portfolio-caption">
-            <div class="portfolio-caption-heading">Southwest
-            </div>
-            <div
-              class="portfolio-caption-subheading text-muted">
-              Website Design</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <!-- Portfolio item 6-->
-        <div class="portfolio-item">
-          <a class="portfolio-link" data-bs-toggle="modal"
-            href="#portfolioModal6">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content"><i
-                  class="fas fa-plus fa-3x"></i></div>
-            </div>
-            <img class="img-fluid"
-              src="assets/img/portfolio/6.jpg"
-              alt="..." />
-          </a>
-          <div class="portfolio-caption">
-            <div class="portfolio-caption-heading">Window
-            </div>
-            <div
-              class="portfolio-caption-subheading text-muted">
-              Photography</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php endif ?>
+
   </div>
 </section>

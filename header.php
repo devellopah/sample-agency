@@ -46,11 +46,11 @@ $options = get_fields('options');
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-					<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-					<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-					<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-					<li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-					<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+					<li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
+					<li class="nav-item"><a class="nav-link" href="#portfolio">Портфолио</a></li>
+					<li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
+					<li class="nav-item"><a class="nav-link" href="#team">Команда</a></li>
+					<li class="nav-item"><a class="nav-link" href="#contact">Связь с нами</a></li>
 				</ul>
 			</div>
 		</div>
