@@ -15,6 +15,7 @@ mw_log(get_fields());
   <?php
   echo get_template_part('page-sections/services');
   echo get_template_part('page-sections/portfolio');
+  echo get_template_part('page-sections/about');
   ?>
 </main><!-- #main -->
 
