@@ -29,12 +29,15 @@
 			</div>
 		</div>
 	</footer>
+
 <?php endif; ?>
+
 </div>
 
-<?php
-if (get_field('portfolio_projects')) :
-	foreach (get_field('portfolio_projects') as $i => $item) : ?>
+<?php if (get_field('portfolio_projects')) :
+	foreach (get_field('portfolio_projects') as $i => $item) :
+?>
+
 		<div class="portfolio-modal modal fade" id="portfolioModal<?php echo $i + 1 ?>"
 			tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
@@ -75,9 +78,11 @@ if (get_field('portfolio_projects')) :
 				</div>
 			</div>
 		</div>
+
 <?php
 	endforeach;
-endif ?>
+endif;
+?>
 
 <?php wp_footer(); ?>
 

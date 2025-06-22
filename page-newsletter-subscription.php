@@ -12,7 +12,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-  <?= get_template_part('page-sections/newsletter-success') ?>
+  <?php echo get_template_part('page-sections/newsletter-success') ?>
 </main><!-- #main -->
 
 <?php

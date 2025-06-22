@@ -27,7 +27,7 @@ $latest_post = get_post();
       </div>
 
       <?php if ($paged < $max_pages) : ?>
-        <button id="loadmore" class="news__more btn btn--red" data-aos="fade-up" data-max_pages="<?= $max_pages ?>" data-paged="<?= $paged ?>">Загрузить еще</button>
+        <button id="loadmore" class="news__more btn btn--red" data-aos="fade-up" data-max_pages="<?php echo $max_pages ?>" data-paged="<?php echo $paged ?>">Загрузить еще</button>
       <?php endif ?>
   </section>
 </main>

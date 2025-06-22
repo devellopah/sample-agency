@@ -9,7 +9,9 @@
 
       <ul class="timeline">
 
-        <?php foreach (get_field('about_timeline') as $i => $item) : $iteration = $i + 1 ?>
+        <?php foreach (get_field('about_timeline') as $i => $item) :
+          $iteration = $i + 1;
+        ?>
 
           <li class="<?php echo $iteration % 2 === 0 ? ' timeline-inverted' : '' ?>">
             <div class="timeline-image">

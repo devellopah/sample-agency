@@ -34,9 +34,10 @@ $options = get_fields('options');
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 		<div class="container">
+
 			<?php if (!empty($options['header_logo_desc_1'])) : ?>
-				<a href="<?= home_url() ?>" class="navbar-brand" href="#page-top">
-					<img src="<?= esc_url($options['header_logo_desc_1']['url']) ?>" alt="<?= esc_attr($options['header_logo_desc_1']['alt']) ?>">
+				<a href="<?php echo home_url() ?>" class="navbar-brand" href="#page-top">
+					<img src="<?php echo esc_url($options['header_logo_desc_1']['url']) ?>" alt="<?php echo esc_attr($options['header_logo_desc_1']['alt']) ?>">
 				</a>
 			<?php endif ?>
 

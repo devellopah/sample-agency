@@ -18,11 +18,11 @@ get_header();
 			<div class="not-found__wrap">
 				<span class="not-found__heading"><?php the_field('404_heading', 'option') ?></span>
 				<p class="not-found__description"><?php the_field('404_description', 'option') ?></p>
-				<a href="<?= esc_url(get_field('404_link', 'option')['url']) ?>" target="<?= esc_attr(get_field('404_link', 'option')['target']) ?>" class="not-found__btn btn"><?= esc_html(get_field('404_link', 'option')['title']) ?></a>
+				<a href="<?php echo esc_url(get_field('404_link', 'option')['url']) ?>" target="<?php echo esc_attr(get_field('404_link', 'option')['target']) ?>" class="not-found__btn btn"><?php echo esc_html(get_field('404_link', 'option')['title']) ?></a>
 			</div>
 			<?php if (get_field('404_bg_image', 'option')) : ?>
 				<picture class="not-found__bg">
-					<img src="<?= esc_url(get_field('404_bg_image', 'option')['url']) ?>" alt="<?= esc_attr(get_field('404_bg_image', 'option')['alt']) ?>">
+					<img src="<?php echo esc_url(get_field('404_bg_image', 'option')['url']) ?>" alt="<?php echo esc_attr(get_field('404_bg_image', 'option')['alt']) ?>">
 				</picture>
 			<?php endif ?>
 		</div>
