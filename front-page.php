@@ -16,6 +16,9 @@ mw_log(get_fields());
   echo get_template_part('page-sections/services');
   echo get_template_part('page-sections/portfolio');
   echo get_template_part('page-sections/about');
+  echo get_template_part('page-sections/team');
+  echo get_template_part('page-sections/clients');
+  echo get_template_part('page-sections/contacts');
   ?>
 </main><!-- #main -->
 
