@@ -25,6 +25,14 @@ $options = get_fields('options');
 		header.masthead {
 			background-image: url("<?php the_field('intro_bg_image') ?>");
 		}
+
+		<?php if (is_front_page()) : ?>@media (max-width: 991.9998px) {
+			#mainNav {
+				background-color: #212529;
+			}
+		}
+
+		<?php endif; ?>
 	</style>
 </head>
 
@@ -32,35 +40,46 @@ $options = get_fields('options');
 	<?php wp_body_open(); ?>
 
 	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+	<nav class="navbar navbar-expand-lg navbar-dark <?php echo is_front_page() ? ' fixed-top' : '' ?>" id="mainNav">
 		<div class="container">
 
 			<?php if (!empty($options['header_logo_desc_1'])) : ?>
+
 				<a href="<?php echo home_url() ?>" class="navbar-brand" href="#page-top">
 					<img src="<?php echo esc_url($options['header_logo_desc_1']['url']) ?>" alt="<?php echo esc_attr($options['header_logo_desc_1']['alt']) ?>">
 				</a>
+
 			<?php endif ?>
 
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				Menu
-				<i class="fas fa-bars ms-1"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-					<li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
-					<li class="nav-item"><a class="nav-link" href="#portfolio">Портфолио</a></li>
-					<li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
-					<li class="nav-item"><a class="nav-link" href="#team">Команда</a></li>
-					<li class="nav-item"><a class="nav-link" href="#contact">Связь с нами</a></li>
-				</ul>
-			</div>
+			<?php if (is_front_page()) : ?>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					Menu
+					<i class="fas fa-bars ms-1"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+						<li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
+						<li class="nav-item"><a class="nav-link" href="#portfolio">Портфолио</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
+						<li class="nav-item"><a class="nav-link" href="#team">Команда</a></li>
+						<li class="nav-item"><a class="nav-link" href="#contact">Связь с нами</a></li>
+					</ul>
+				</div>
+
+			<?php endif ?>
+
 		</div>
 	</nav>
-	<!-- Masthead-->
-	<header class="masthead">
-		<div class="container">
-			<div class="masthead-subheading"><?php the_field('intro_subheading') ?></div>
-			<div class="masthead-heading text-uppercase"><?php the_field('intro_heading') ?></div>
-			<a class="btn btn-primary btn-xl text-uppercase" href="#services"><?php the_field('intro_btn_text') ?></a>
-		</div>
-	</header>
+
+	<?php if (is_front_page()) : ?>
+
+		<header class="masthead">
+			<div class="container">
+				<div class="masthead-subheading"><?php the_field('intro_subheading') ?></div>
+				<div class="masthead-heading text-uppercase"><?php the_field('intro_heading') ?></div>
+				<a class="btn btn-primary btn-xl text-uppercase" href="#services"><?php the_field('intro_btn_text') ?></a>
+			</div>
+		</header>
+
+	<?php endif ?>
