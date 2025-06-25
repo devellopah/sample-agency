@@ -139,7 +139,7 @@ function sample_agency_scripts()
 	// wp_enqueue_script('sample-agency-nouislider', get_template_directory_uri() . '/assets/libs/nouislider/nouislider.min.js', [], _S_VERSION, true);
 	// wp_enqueue_script('sample-agency-flatpickr', get_template_directory_uri() . '/assets/libs/flatpickr/flatpickr.min.js', [], _S_VERSION, true);
 	// wp_enqueue_script('sample-agency-flatpickr-ru', get_template_directory_uri() . '/assets/libs/flatpickr/l10n/ru.js', [], _S_VERSION, true);
-	// wp_enqueue_script('sample-agency-inputmask', get_template_directory_uri() . '/assets/libs/inputmask/inputmask.min.js', [], _S_VERSION, true);
+	wp_enqueue_script('sample-agency-inputmask', get_template_directory_uri() . '/assets/libs/inputmask/inputmask.min.js', [], _S_VERSION, true);
 	// Font Awesome
 	wp_enqueue_script('font-awesome', 'https://use.fontawesome.com/releases/v5.15.3/js/all.js', [], _S_VERSION, true);
 	wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js', [], _S_VERSION, true);
@@ -164,7 +164,7 @@ function sample_agency_scripts()
 	// wp_add_inline_script('sample-agency-map-js', 'const placemarkText = ' . wp_json_encode(get_field('map_placemark_text', 'option')), 'before');
 
 	wp_localize_script(
-		'sample-agency-custom',
+		'sample-agency-app',
 		'siteData',
 		[
 			'ajax_url' => admin_url('admin-ajax.php'),

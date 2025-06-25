@@ -10,6 +10,7 @@
  * @package Sample_Agency
  */
 $options = get_fields('options');
+mw_log($options);
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -26,10 +27,18 @@ $options = get_fields('options');
 			background-image: url("<?php the_field('intro_bg_image') ?>");
 		}
 
+		.form-group.is--error>.invalid-feedback {
+			display: initial;
+		}
+
 		<?php if (is_front_page()) : ?>@media (max-width: 991.9998px) {
 			#mainNav {
 				background-color: #212529;
 			}
+		}
+
+		.relative {
+			position: relative;
 		}
 
 		<?php endif; ?>
