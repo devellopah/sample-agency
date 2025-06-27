@@ -15,12 +15,24 @@
               <img src="<?php echo esc_url($member['photo']['url']) ?>" alt="<?php echo esc_attr($member['photo']['alt']) ?>" class="mx-auto rounded-circle">
               <h4><?php echo esc_html($member['name']) ?></h4>
               <p class="text-muted"><?php echo esc_html($member['occupation']) ?></p>
-              <a class="btn btn-dark btn-social mx-2" href="#!"><i
-                  class="fab fa-twitter"></i></a>
-              <a class="btn btn-dark btn-social mx-2" href="#!"><i
-                  class="fab fa-facebook-f"></i></a>
-              <a class="btn btn-dark btn-social mx-2" href="#!"><i
-                  class="fab fa-linkedin-in"></i></a>
+
+              <?php if ($member['socials_twitter']) : ?>
+                <a class="btn btn-dark btn-social mx-2" href="<?php echo esc_url($member['socials_twitter']) ?>" target="_blank" rel="noreferrer noopener">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              <?php endif ?>
+
+              <?php if ($member['socials_facebook']) : ?>
+                <a class="btn btn-dark btn-social mx-2" href="<?php echo esc_url($member['socials_facebook']) ?>" target="_blank" rel="noreferrer noopener">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              <?php endif ?>
+
+              <?php if ($member['socials_linkedin']) : ?>
+                <a class="btn btn-dark btn-social mx-2" href="<?php echo esc_url($member['socials_linkedin']) ?>" target="_blank" rel="noreferrer noopener">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              <?php endif ?>
             </div>
           </div>
 

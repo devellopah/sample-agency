@@ -9,8 +9,6 @@
  *
  * @package Sample_Agency
  */
-$options = get_fields('options');
-mw_log($options);
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -23,6 +21,16 @@ mw_log($options);
 	<?php wp_head(); ?>
 
 	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+		}
+
+		.site-main {
+			flex-grow: 1;
+		}
+
 		header.masthead {
 			background-image: url("<?php the_field('intro_bg_image') ?>");
 		}
@@ -52,10 +60,10 @@ mw_log($options);
 	<nav class="navbar navbar-expand-lg navbar-dark <?php echo is_front_page() ? ' fixed-top' : '' ?>" id="mainNav">
 		<div class="container">
 
-			<?php if (!empty($options['header_logo_desc_1'])) : ?>
+			<?php if (!empty(get_field('header_logo_desc_1', 'option'))) : ?>
 
 				<a href="<?php echo home_url() ?>" class="navbar-brand" href="#page-top">
-					<img src="<?php echo esc_url($options['header_logo_desc_1']['url']) ?>" alt="<?php echo esc_attr($options['header_logo_desc_1']['alt']) ?>">
+					<img src="<?php echo esc_url(get_field('header_logo_desc_1', 'option')['url']) ?>" alt="<?php echo esc_attr(get_field('header_logo_desc_1', 'option')['alt']) ?>">
 				</a>
 
 			<?php endif ?>
@@ -63,18 +71,23 @@ mw_log($options);
 			<?php if (is_front_page()) : ?>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-					Menu
+					Меню
 					<i class="fas fa-bars ms-1"></i>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-						<li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
-						<li class="nav-item"><a class="nav-link" href="#portfolio">Портфолио</a></li>
-						<li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
-						<li class="nav-item"><a class="nav-link" href="#team">Команда</a></li>
-						<li class="nav-item"><a class="nav-link" href="#contact">Связь с нами</a></li>
-					</ul>
-				</div>
+
+				<?php if (get_field('header_menu', 'option')) : ?>
+
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+
+							<?php foreach (get_field('header_menu', 'option') as $item) : ?>
+								<li class="nav-item"><a class="nav-link" href="#<?php echo esc_html($item['id']) ?>"><?php echo esc_html($item['title']) ?></a></li>
+							<?php endforeach ?>
+
+						</ul>
+					</div>
+
+				<?php endif ?>
 
 			<?php endif ?>
 

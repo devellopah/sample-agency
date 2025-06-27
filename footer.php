@@ -16,15 +16,30 @@
 	<footer class="footer py-4">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2021</div>
+				<div class="col-lg-4 text-lg-start"><?php the_field('footer_copyright', 'option') ?></div>
 				<div class="col-lg-4 my-3 my-lg-0">
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+
+					<?php if (get_field('footer_socials_twitter', 'option')) : ?>
+						<a class="btn btn-dark btn-social mx-2" href="<?php echo esc_url(get_field('footer_socials_twitter', 'option')) ?>" target="_blank" rel="noreferrer noopener">
+							<i class="fab fa-twitter"></i>
+						</a>
+					<?php endif ?>
+					<?php if (get_field('footer_socials_facebook', 'option')) : ?>
+						<a class="btn btn-dark btn-social mx-2" href="<?php echo esc_url(get_field('footer_socials_facebook', 'option')) ?>" target="_blank" rel="noreferrer noopener">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+					<?php endif ?>
+
+					<?php if (get_field('footer_socials_linkedin', 'option')) : ?>
+						<a class="btn btn-dark btn-social mx-2" href="<?php echo esc_url(get_field('footer_socials_linkedin', 'option')) ?>" target="_blank" rel="noreferrer noopener">
+							<i class="fab fa-linkedin-in"></i>
+						</a>
+					<?php endif ?>
+
 				</div>
 				<div class="col-lg-4 text-lg-end">
-					<a class="link-dark text-decoration-none me-3" href="#!">Политика конфиденциальности</a>
-					<a class="link-dark text-decoration-none" href="#!">Условия пользования</a>
+					<a class="link-dark text-decoration-none me-3" href="<?php echo esc_url(get_field('footer_link_1', 'option')['url']) ?>"><?php echo esc_html(get_field('footer_link_1', 'option')['text']) ?></a>
+					<a class="link-dark text-decoration-none" href="<?php echo esc_url(get_field('footer_link_2', 'option')['url']) ?>"><?php echo esc_html(get_field('footer_link_2', 'option')['text']) ?></a>
 				</div>
 			</div>
 		</div>
@@ -57,11 +72,11 @@
 									<p><?php echo esc_html($item['description']) ?></p>
 									<ul class="list-inline">
 										<li>
-											<strong>Заказчик:</strong>
+											<strong><?php the_field('portfolio_project_client_label') ?></strong>
 											<?php echo esc_html($item['client']) ?>
 										</li>
 										<li>
-											<strong>Категория:</strong>
+											<strong><?php the_field('portfolio_project_category_label') ?></strong>
 											<?php echo esc_html($item['category']) ?>
 										</li>
 									</ul>

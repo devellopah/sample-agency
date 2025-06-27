@@ -125,43 +125,14 @@ function sample_agency_scripts()
 	wp_enqueue_style('sample-agency-style', get_stylesheet_uri(), [], _S_VERSION);
 	wp_style_add_data('sample-agency-style', 'rtl', 'replace');
 
-	// wp_enqueue_style('sample-agency-aos', get_template_directory_uri() . '/assets/libs/aos/aos.css', [], _S_VERSION);
-	// wp_enqueue_style('sample-agency-glightbox', get_template_directory_uri() . '/assets/libs/glightbox/glightbox.min.css', [], _S_VERSION);
-	// wp_enqueue_style('sample-agency-swiper', get_template_directory_uri() . '/assets/libs/swiper/swiper.min.css', [], _S_VERSION);
-	// wp_enqueue_style('sample-agency-nouislider', get_template_directory_uri() . '/assets/libs/nouislider/nouislider.min.css', [], _S_VERSION);
-	// wp_enqueue_style('sample-agency-flatpickr', get_template_directory_uri() . '/assets/libs/flatpickr/flatpickr.min.css', [], _S_VERSION);
 	wp_enqueue_style('sample-agency-app', get_template_directory_uri() . '/assets/css/styles.css', [], _S_VERSION);
 
-	// wp_enqueue_script('sample-agency-aos', get_template_directory_uri() . '/assets/libs/aos/aos.js', [], _S_VERSION, true);
-	// wp_enqueue_script('sample-agency-glightbox', get_template_directory_uri() . '/assets/libs/glightbox/glightbox.min.js', [], _S_VERSION, true);
-
-	// wp_enqueue_script('sample-agency-swiper', get_template_directory_uri() . '/assets/libs/swiper/swiper-bundle.min.js', [], _S_VERSION, true);
-	// wp_enqueue_script('sample-agency-nouislider', get_template_directory_uri() . '/assets/libs/nouislider/nouislider.min.js', [], _S_VERSION, true);
-	// wp_enqueue_script('sample-agency-flatpickr', get_template_directory_uri() . '/assets/libs/flatpickr/flatpickr.min.js', [], _S_VERSION, true);
-	// wp_enqueue_script('sample-agency-flatpickr-ru', get_template_directory_uri() . '/assets/libs/flatpickr/l10n/ru.js', [], _S_VERSION, true);
 	wp_enqueue_script('sample-agency-inputmask', get_template_directory_uri() . '/assets/libs/inputmask/inputmask.min.js', [], _S_VERSION, true);
 	// Font Awesome
 	wp_enqueue_script('font-awesome', 'https://use.fontawesome.com/releases/v5.15.3/js/all.js', [], _S_VERSION, true);
 	wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js', [], _S_VERSION, true);
 
-	wp_enqueue_script('sample-agency-app', get_template_directory_uri() . '/assets/js/scripts.js', [], _S_VERSION, true);
-	// wp_enqueue_script('sample-agency-custom', get_template_directory_uri() . '/assets/js/custom.js', ['jquery'], _S_VERSION, true);
-	// wp_enqueue_script('sample-agency-loadmore', get_template_directory_uri() . '/assets/js/loadmore.js', [], _S_VERSION, true);
-
-	// wp_enqueue_script('sample-agency-navigation', get_template_directory_uri() . '/js/navigation.js', [], _S_VERSION, true);
-
-	// if (get_field('map_key', 'option')) {
-	// 	wp_enqueue_script('sample-agency-map_api', wp_sprintf('//api-maps.yandex.ru/v3/?apikey=%s&lang=ru_RU', get_field('map_key', 'option')), [], null, true);
-	// 	wp_enqueue_script('sample-agency-map-js', get_template_directory_uri() . '/assets/js/map.js', [], _S_VERSION, true);
-	// } elseif (is_page('kontakty')) {
-	// 	wp_enqueue_script('sample-agency-map_api', '//api-maps.yandex.ru/2.1/?lang=ru_RU', [], _S_VERSION, true);
-	// 	wp_enqueue_script('sample-agency-map-js', get_template_directory_uri() . '/assets/js/map.js', [], _S_VERSION, true);
-	// }
-	// if (get_field('map_marker', 'option')) {
-	// 	wp_add_inline_script('sample-agency-map-js', 'const markerUrl = ' . wp_json_encode(get_field('map_marker', 'option')), 'before');
-	// }
-	// wp_add_inline_script('sample-agency-map-js', 'const iconImageHref = "' . get_template_directory_uri() . '/assets/img/icon-map-dot.svg"', 'before');
-	// wp_add_inline_script('sample-agency-map-js', 'const placemarkText = ' . wp_json_encode(get_field('map_placemark_text', 'option')), 'before');
+	wp_enqueue_script('sample-agency-app', get_template_directory_uri() . '/assets/js/scripts.js', ['jquery'], _S_VERSION, true);
 
 	wp_localize_script(
 		'sample-agency-app',
@@ -202,8 +173,4 @@ if (defined('JETPACK__VERSION')) {
 }
 
 require get_template_directory() . '/inc/helpers.php';
-require get_template_directory() . '/inc/walkers/primary-menu.php';
-require get_template_directory() . '/inc/walkers/mobile-menu.php';
-require get_template_directory() . '/inc/walkers/footer-menu.php';
 require get_template_directory() . '/inc/ajax/forms.php';
-require get_template_directory() . '/inc/ajax/loadmore.php';

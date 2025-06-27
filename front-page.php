@@ -8,7 +8,6 @@
  */
 
 get_header();
-mw_log(get_fields());
 ?>
 
 <main id="primary" class="site-main">

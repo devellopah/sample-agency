@@ -1,4 +1,4 @@
-<section class="page-section" id="contact" style="background-image: url('<?php echo THEME_URI ?>/assets/img/map-image.png'); ">
+<section class="page-section" id="contact" style="background-image: url('<?php the_field('contacts_bg_image') ?>">
   <div class=" container">
     <div class="text-center">
       <h2 class="section-heading text-uppercase"><?php the_field('contacts_heading') ?></h2>
@@ -29,13 +29,13 @@
         </div>
       </div>
 
-      <div style="display:none;" data-submit="success">
+      <div style="display: none;" data-submit="success">
         <div class="text-center text-white mb-3">
           <div class="fw-bolder"><?php echo esc_html(get_field('form_submission_success', 'option')['heading']) ?></div>
         </div>
       </div>
 
-      <div style="display:none;" data-submit="fail">
+      <div style="display: none;" data-submit="fail">
         <div class="text-center text-danger mb-3"><?php echo esc_html(get_field('form_submission_fail', 'option')['heading']) ?></div>
       </div>
 
